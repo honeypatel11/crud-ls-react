@@ -1,13 +1,14 @@
-import Form from "./component/Form"
-import Userlist from "./component/Userlist"
 
-const App = () => {
+import Form from "./Form";
+import Userlist from "./component/Userlist";
+
+function App() {
   return (
     <div>
-      <Form/>
-      <Userlist/>
+      <Form />
+      <Userlist />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
