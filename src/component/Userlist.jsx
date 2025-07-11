@@ -1,4 +1,4 @@
-const Userlist= ({ users, deleteUser, getEditUser }) => {
+const UserList = ({ users, deleteUser, getEditUser }) => {
     const handleDelete = (userId) => {
         deleteUser(userId);
     };
@@ -21,65 +21,59 @@ const Userlist= ({ users, deleteUser, getEditUser }) => {
     };
 
     return (
-        <div>
+        <div className="min-h-[459px] bg-gray-100 p-4 rounded-xl shadow-md max-w-6xl mx-auto mt-8">
             {users.length !== 0 ? (
-                <div className="bg-slate-100 h-[459px]">
-                    <div className="container mx-auto h-full">
-                        <div className="h-full  sm:rounded-lg overflow-hidden">
-                            <div className="overflow-y-auto h-full scrollbar-hidden">
-                                <table className="w-full text-sm text-left text-gray-500">
-                                    <thead className="text-black uppercase bg-gray-50 sticky top-0 z-10">
-                                        <tr>
-                                            <th className="px-6 py-3">Name</th>
-                                            <th className="px-6 py-3">Course</th>
-                                            <th className="px-6 py-3">Email</th>
-                                            <th className="px-6 py-3">Gender</th>
-                                            <th className="px-6 py-3">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {users.map((item) => (
-                                            <tr
-                                                key={item.id}
-                                                className="odd:bg-white even:bg-gray-50 hover:bg-gray-100 border-b border-gray-200"
+                <div className="overflow-x-auto rounded-xl shadow-inner bg-white">
+                    <table className="min-w-full text-sm text-left text-gray-700">
+                        <thead className="uppercase text-white bg-gradient-to-r from-indigo-600 to-purple-600 sticky top-0 z-10">
+                            <tr>
+                                <th className="px-6 py-4">Name</th>
+                                <th className="px-6 py-4">Course</th>
+                                <th className="px-6 py-4">Email</th>
+                                <th className="px-6 py-4">Gender</th>
+                                <th className="px-6 py-4">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {users.map((item) => (
+                                <tr
+                                    key={item.id}
+                                    className="even:bg-gray-100 hover:bg-indigo-50 transition-colors border-b"
+                                >
+                                    <td className="px-6 py-4 font-medium text-gray-900">{item.name}</td>
+                                    <td className="px-6 py-4">{getCourse(Number(item.course))}</td>
+                                    <td className="px-6 py-4">{item.email}</td>
+                                    <td className="px-6 py-4">{item.gender}</td>
+                                    <td className="px-6 py-4">
+                                        <div className="flex gap-4">
+                                            <button
+                                                className="text-yellow-500 font-semibold hover:underline"
+                                                onClick={() => handleEdit(item)}
                                             >
-                                                <td className="px-6 py-3 text-black">{item.name}</td>
-                                                <td className="px-6 py-3 text-black">
-                                                    {getCourse(Number(item.course))}
-                                                </td>
-                                                <td className="px-6 py-3 text-black">{item.email}</td>
-                                                <td className="px-6 py-3 text-black">{item.gender}</td>
-                                                <td className="px-6 py-3 text-black">
-                                                    <div className="flex gap-5">
-                                                        <button
-                                                            className="font-medium text-blue-600 hover:underline"
-                                                            onClick={() => handleEdit(item)}
-                                                        >
-                                                            Edit
-                                                        </button>
-                                                        <button
-                                                            className="font-medium text-red-600 hover:underline"
-                                                            onClick={() => handleDelete(item.id)}
-                                                        >
-                                                            Delete
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                                                Edit
+                                            </button>
+                                            <button
+                                                className="text-red-600 font-semibold hover:underline"
+                                                onClick={() => handleDelete(item.id)}
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
             ) : (
-                <h1 className="bg-slate-100 h-[459px] text-center text-xl font-semibold pt-10">
-                    No Data Found
-                </h1>
+                <div className="flex items-center justify-center h-[459px] bg-white rounded-xl shadow-inner">
+                    <h1 className="text-2xl font-semibold text-gray-500">
+                        No Data Found
+                    </h1>
+                </div>
             )}
         </div>
     );
 };
 
-export default Userlist;
+export default UserList;
