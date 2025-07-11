@@ -101,7 +101,7 @@ return (
           
             <div className="bg-gradient-to-br from-indigo-600 to-purple-700 p-10 flex flex-col items-center justify-center text-white">
                 <div className="w-full h-80 bg-[url('https://koteti.ac.tz/wp-content/themes/zilom/images/register.png')] bg-no-repeat bg-contain bg-center"></div>
-                <p className="mt-6 text-center font-light text-sm">Empower your learning journey with us.</p>
+               
             </div>
            
             <div className="p-10 bg-slate-100 flex items-center justify-center">
